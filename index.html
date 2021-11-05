@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang = "en-us">
 
 <head>
   <meta charset="utf-8">
@@ -39,16 +39,81 @@
   <script>
 
     const apiKey = "AAPK947bf115dd8d44da9b119d18ed465670bSQfPQOvMqOLYYWGprUm0df469-0wWWO27mnQPE11xqj1T5YtjdKxaYJkxN2hJST";
-    const basemapEnum = "ArcGIS:Imagery";
-
     const map = L.map('map', {
       minZoom: 2
-    }).setView([-30,0], 13);
+    }).setView([-65,-60], 5);
 
-    L.esri.Vector.vectorBasemapLayer(basemapEnum, {
-      apiKey: apiKey
+    // define basemap
+    const basemapLayers = {
+      "Topographic": L.esri.Vector.vectorBasemapLayer('ArcGIS:Topographic', {apiKey: apiKey}).addTo(map),
+      "Light Gray": L.esri.Vector.vectorBasemapLayer('ArcGIS:LightGray', {apiKey: apiKey}).addTo(map),
+      "Dark gray": L.esri.Vector.vectorBasemapLayer('ArcGIS:DarkGray', {apiKey: apiKey}).addTo(map),
+      "ChartedTerritory": L.esri.Vector.vectorBasemapLayer('ArcGIS:ChartedTerritory', {apiKey: apiKey}).addTo(map),
+      "OSM": L.esri.Vector.vectorBasemapLayer('OSM:Standard', {apiKey: apiKey}).addTo(map),
+      "Imagery": L.esri.Vector.vectorBasemapLayer('ArcGIS:Imagery', {apiKey: apiKey}).addTo(map)
+    }
+
+    // Add basemap layer
+    L.control.layers(basemapLayers).addTo(map);
+
+    // Create the select dropdown and add to the top-right of the map
+    L.Control.QueryControl = L.Control.extend({
+      onAdd: function(map) {
+        // Array of query where clauses
+        const whereClauses = ["Choose a WHERE clause...",
+        "Group = 'Algae'","Group = 'Angiosperm'","Group = 'Arthropod'","Group = 'Bryophyte'","Group = 'Fungi'","Group = 'Lichen'","Group = 'Rotifer'","Group = 'Tardigrade'","Group = 'Other animals'",
+        "Taxa = 'algae'","Taxa = 'fungi'","Taxa = 'lichen'","Taxa = 'moss'","Taxa = 'grass'","Taxa = 'pearlwort'","Taxa = 'plant'","Taxa = 'tardigrade'","Taxa = 'mite'","Taxa = 'springtail'", "Taxa = 'insect'","Taxa = 'nematode'", "Taxa = 'nemertea'", "Taxa = 'rotifer'"
+        ];
+        // Create select
+        const select = L.DomUtil.create("select","");
+        select.setAttribute("id", "whereClauseSelect");
+        select.setAttribute("style", "font-size: 16px;padding:4px 8px;");
+        whereClauses.forEach(function(whereClause){
+          let option = L.DomUtil.create("option");
+          option.innerHTML = whereClause;
+          select.appendChild(option);
+        });
+        return select;
+      },
+
+      onRemove: function(map) {
+        // Nothing to do here
+      }
+    });
+
+    L.control.queryControl = function(opts) {
+      return new L.Control.QueryControl(opts);
+    }
+
+    L.control.queryControl({
+      position: 'topright'
     }).addTo(map);
 
+    // Add the Feature Layer to the map
+    const parcels = L.esri.featureLayer({
+      url: "https://services1.arcgis.com/NIkwK16KnqB4PR1J/arcgis/rest/services/antarctic_t_genetic/FeatureServer/0",
+      simplifyFactor: 0.5,
+      precision: 4,
+      where: '1 = 0',
+      style: function(feature) {
+        // https://leafletjs.com/reference-1.7.1.html#path-option
+        return {
+          opacity: 1.0,
+          weight: 0.5,
+          color: 'white',
+          fillColor: '#19A1E6',
+          fillOpacity: 0.5
+         };
+      }
+    }).addTo(map);
+
+    // When the selected where clause changes, set the filter on the layer
+    const select = document.getElementById('whereClauseSelect');
+    select.addEventListener('change', () => {
+      if(select.value !== '') {
+        parcels.setWhere(select.value);
+      }
+    });
   </script>
 </body>
 
