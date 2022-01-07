@@ -1,7 +1,7 @@
 # Antarctic Terrestrial Genetic Database 
 Data were retrieved from empirical publications from multiple sources.  
 
-![CC License]("http://creativecommons.org/licenses/by/4.0/")  
+![CC License]("https://i.creativecommons.org/l/by/4.0/88x31.png")  
 This work is licensed under a Creative Commons Attribution 4.0 International License.  
 You are free to:
 
