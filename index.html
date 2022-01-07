@@ -6,24 +6,26 @@
   <title>Antarctic Terrestrial Gene</title>
 
   <style>
-    body { margin:0; padding:0; }
-    #map {
-        position: absolute;
-        top:0;
-        bottom:0;
-        right:0;
-        left:0;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 14px;
-        color: #323232;
+      body {
+          margin: 0;
+      }
+      .banner {
+          background: #f00;
+          height: 30px;
+      }
+      iframe {
+          display: block;
+          background: #000;
+          border: none;
+          height: calc(100vh - 30px);
+          width: 100%;
       }
   </style>
 </head>
 
 <body>
-  <div class="row-container">
+  <div class="banner"></div>
   <iframe src="https://otago.maps.arcgis.com/apps/webappviewer/index.html?id=d59435055de7430c8e04e657fd8dee7b" frameborder="0"></iframe>
-  </div>
 </body>
 
 </html>
