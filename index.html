@@ -5,11 +5,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Antarctic GENE</title>
-  <script>
-    lightBoxClose = function() {
-      document.querySelector(".lightbox").classList.add("closed");
-    }
-  </script>
+
   <style>
           body {
         margin: 0;
@@ -18,80 +14,43 @@
         background: #f05414;
         height: 1px;
     }
-    iframe {
-        display: block;
-        background: #000;
-        border: none;
-        height: calc(100vh - 1px);
-        width: 100%;
-    .lightbox {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(0, 0, 0, .5)
-      }
-    .toolbarLB {
-        text-align: right;
-        padding: 3px;
-      }
-    .closeLB {
-        color: red;
-        cursor: pointer;
-      }
-    .lightbox .iframeContainer {
-        vertical-align: middle;
-        background: #CCC;
-        padding: 2px;
-      }
-    .lightbox.closed {
-        display: none;
-      }
-    }
   </style>
+  
 </head>
 
 <body>
-   <h2>The data may take up to 60s to load, if it doesn't please refresh or contact liu.pluto@outlook.com</h2>
-   <br>
-   <h1> Antarctic Terrestrial Genetic Database </h1>
-   <h2>Data were retrieved from empirical publications from multiple sources.</h2> 
-   <br>
-   <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p> 
-   <br>
-   <p>You are free to:
-   <br>
-    * Share - copy and redistribute the materials in any medium or format <br>
-    * Adapt - remix, transform, and build upon the material for any purpose, even commercially <br>
-   <br>
-    You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.  
-   </p>
-   <p><strong>**Publication in preparation**</strong></p>
-   <br>
-   <p>Built by Dynamic Biodiversity Lab (https://www.ceridwenfraser.com/)<br>  
-    University of Otago,<br>  
-    Dunedin, New Zealand </p> 
-    <br>
-    <p>Any questions please email: 
-      liu.pluto@outlook.com</p>
-  </div>
-</div>
-<div class="lightbox">
-  <div class="ïframeContainer">
-    <div class="toolbarLB">
-      <span class="closeLB" onclick="lightBoxClose()">x</span>
+  <div class="modal fade" id="overlay">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Title</h4>
+      </div>
+      <div class="modal-body">
+        <b>Antarctic Terrestrial Genetic Database</b>
+        <p>Data were retrieved from empirical publications from multiple sources.</p><br>  
+        <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p><br>
+        <p>You are free to:
+        <ul>
+          <li>* Share - copy and redistribute the materials in any medium or format</li>
+          <li>* Adapt - remix, transform, and build upon the material for any purpose, even commercially</li>
+        </ul>
+        <p>You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.</p>
+        <p><b>**Publication in preparation**</b></p>
+        <p><a herf="https://www.ceridwenfraser.com/">Built by Dynamic Biodiversity Lab</a></p>
+        <br><p>University of Otago,</p>  
+        <p>Dunedin, New Zealand</p>
+        <p>Any questions please email: liu.pluto@outlook.com</p>
+      </div>
     </div>
-    <div class="banner"></div>
-    <iframe src="https://arcgis.com/apps/webappviewer/index.html?id=f3be8f84e7e54a93bdf9332b0df6b96a">
-    </iframe>
-    <script type="application/javascript" src="/assets/_combinedfiles/common-8157fb2.js">
-    </script>
   </div>
 </div>
+  <div class="banner"></div>
+  <iframe src="https://arcgis.com/apps/webappviewer/index.html?id=f3be8f84e7e54a93bdf9332b0df6b96a">
+  </iframe>
+  <script type="application/javascript" src="/assets/_combinedfiles/common-8157fb2.js">
+  </script>
+  
 </body>
 
 </html>
