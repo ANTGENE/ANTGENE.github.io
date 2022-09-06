@@ -10,7 +10,8 @@ You are free to:
 
 You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.  
 
-**Please cite: Liu XP, Duffy GA, Pearman WS, Pertierra LR, Fraser CI (2022). Meta-analysis of Antarctic phylogeography reveals strong sampling bias and critical knowledge gaps. Ecography. doi: 10.1111/ecog.06312.**
+**Please cite: 
+Liu XP, Duffy GA, Pearman WS, Pertierra LR, Fraser CI (2022). Meta-analysis of Antarctic phylogeography reveals strong sampling bias and critical knowledge gaps. Ecography. doi: 10.1111/ecog.06312.**
 
 Built by Dynamic Biodiversity Lab (https://www.ceridwenfraser.com/)  
 University of Otago,  
